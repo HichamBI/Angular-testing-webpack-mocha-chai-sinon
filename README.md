@@ -1,21 +1,39 @@
-Angular 2 Testing with Webpack, Mocha, Chai and Sinon.
-===================
+---
+Running Angular 2 Tests with Webpack, Mocha, Chai and Sinon on Both, Node & Browser.
+---
 
 
-Hey! In this post, we will see how to unit test an Angular 2 application with Mocha, on both, browser and Node. (Without Karma or PhantomJs).
 
-Before I write this post, I've googled to find an existing post doing the same thing and I found a post on [Radzen blog](http://www.radzen.com/blog/testing-angular-webpack-mocha/) that work fine except when I tried to add an **ngFor** directive, the following error was thrown :
+We will use :
 
- 
- Don't worry, I know how to fix it !!
- 
- So, let start.
- 
--------------
-Settings
--------------
++ **Webpack v2**.
 
-Bad things first :
++ **mocha-webpack** and **jsdom** for tests on node.
 
-> **package.json:**
++ **mocha-loader** for tests on browser.
+
++ **Chai** and **Sinon** for assertions and mocking.
+
+
+First thing to do : 
+
+    npm install && typings install
+
+Launch Node tests with : 
+
+    npm test
+
+Launch browser tests with : 
+
+    npm run test:server
+    
+Go to [localhost:8888]() to see the results.
+
+
+
+You can find some explaination [here](http://hichambi.github.io/2016/12/27/testing-angular2-with-webpack-mocha-on-browser-and-node.html).
+
+Hope that can help.
+
+Thanks,
 
