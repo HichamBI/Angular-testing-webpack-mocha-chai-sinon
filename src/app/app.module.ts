@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { BookService } from "./book.service";
+import { AppService } from "./app.service";
 import { HttpModule } from "@angular/http";
 
 @NgModule({
@@ -12,7 +12,7 @@ import { HttpModule } from "@angular/http";
         AppComponent
     ],
     bootstrap: [AppComponent],
-    providers: [BookService]
+    providers: [AppService]
 })
 export class AppModule {
 }

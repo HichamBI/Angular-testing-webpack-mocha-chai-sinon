@@ -4,8 +4,6 @@ var webpack = require('webpack');
 module.exports = {
     devtool: 'cheap-module-source-map',
 
-    target: 'web',
-
     resolve: {
         extensions: ['.ts', '.js']
     },

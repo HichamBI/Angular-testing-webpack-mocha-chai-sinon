@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Book } from "./book.model";
-import { BookService } from "./book.service";
+import { Book } from "./app.model";
+import { AppService } from "./app.service";
 
 @Component({
     selector: 'app',
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
     title: string = 'Best Of Books';
     emptyMessage: string = 'Book List is empty !';
 
-    constructor(private bookService: BookService) {
+    constructor(private bookService: AppService) {
     }
 
     ngOnInit(): void {

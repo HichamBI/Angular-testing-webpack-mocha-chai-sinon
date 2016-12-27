@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Book} from "./book.model";
+import {Book} from "./app.model";
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class BookService {
+export class AppService {
 
     constructor(private http: Http) {
     }
@@ -14,7 +14,7 @@ export class BookService {
         return this.http.get(allBooksUrl)
             .toPromise()
             .then(response => response.json() as Book[])
-            .catch(BookService.handleError);
+            .catch(AppService.handleError);
     }
 
     private static handleError(error: any): Promise<any> {

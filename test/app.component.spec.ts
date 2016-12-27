@@ -6,7 +6,7 @@ import { expect  } from 'chai';
 import  * as sinon  from 'sinon';
 
 import { AppComponent } from "../src/app/app.component";
-import { BookService } from "../src/app/book.service";
+import { AppService } from "../src/app/app.service";
 
 describe(`App Component Test`, () => {
     let comp: AppComponent;
@@ -31,7 +31,7 @@ describe(`App Component Test`, () => {
         TestBed.configureTestingModule({
             imports: [HttpModule],
             declarations: [AppComponent],
-            providers: [BookService],
+            providers: [AppService],
         }).compileComponents();
     });
 

@@ -4,7 +4,7 @@ import { HttpModule } from "@angular/http";
 import { expect } from 'chai';
 import  * as sinon  from 'sinon';
 
-import { BookService } from "../src/app/book.service";
+import { AppService } from "../src/app/app.service";
 
 describe(`Book Service Test`, () => {
     let server: any;
@@ -26,7 +26,7 @@ describe(`Book Service Test`, () => {
 
         TestBed.configureTestingModule({
             imports: [HttpModule],
-            providers: [BookService],
+            providers: [AppService],
         });
     });
 
@@ -36,7 +36,7 @@ describe(`Book Service Test`, () => {
     });
 
     it('should return a list of Book', (done) => {
-        let bookService: BookService = getTestBed().get(BookService);
+        let bookService: AppService = getTestBed().get(AppService);
         bookService.getBookList().then((books) => {
                 expect(books.length).equal(3);
 
