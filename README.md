@@ -3,8 +3,7 @@ Running Angular 2 Tests with Webpack, Mocha, Chai and Sinon on Both, Node & Brow
 ---
 
 
-
-We will use :
+Using :
 
 + **Webpack v2**.
 
@@ -23,7 +22,7 @@ Launch Node tests with :
 
     npm test
 
-Launch browser tests with : 
+Launch Browser tests with : 
 
     npm run test:server
     
