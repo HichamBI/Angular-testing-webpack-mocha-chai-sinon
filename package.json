@@ -1,13 +1,27 @@
 {
   "name": "angular2-webpack-mocha-chai-sinon",
-  "private": false,
   "version": "1.0.0",
   "description": "Running Angular 2 tests with Webpack and Mocha in Browser and Node",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HichamBI/Angular2-Webpack-Mocha-Chai-Sinon.git"
+  },
+  "keywords": [
+    "angular2", "test", "mocha", "webpack", "mocha-loader", "mocha-webpack", "sinon", "chai"
+  ],
+  "author": "Hicham BOUZIDI IDRISSI",
+  "bugs": {
+    "url": "https://github.com/HichamBI/Angular2-Webpack-Mocha-Chai-Sinon/issues"
+  },
+  "homepage": "https://github.com/HichamBI/Angular2-Webpack-Mocha-Chai-Sinon#readme",
+
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "test": "mocha-webpack --opts config/mocha/mocha-webpack.opts",
-    "test:watch": "mocha-webpack --opts config/mocha/mocha-webpack.opts --watch",
-    "test:server": "webpack-dev-server --config config/webpack.test.mocha-browser.js --inline --progress --port 8888"
+
+    "test": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts",
+    "test:watch": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts --watch",
+    "test:server": "webpack-dev-server --config config/webpack.test.browser.js --inline --progress --port 8888"
   },
   "dependencies": {
     "@angular/common": "~2.4.1",
@@ -32,7 +46,6 @@
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
-    "jasmine-core": "^2.4.1",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "mocha-loader": "^1.0.0",
