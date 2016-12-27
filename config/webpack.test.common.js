@@ -1,18 +1,20 @@
-var nodeExternals = require('webpack-node-externals');
 var helpers = require('./helpers');
+var webpack = require('webpack');
 
 module.exports = {
     devtool: 'cheap-module-source-map',
 
-    target: 'node',
+    target: 'web',
 
     resolve: {
         extensions: ['.ts', '.js']
     },
 
-    externals: [
-        nodeExternals()
-    ],
+    resolveLoader: {
+        moduleExtensions: ['-loader'] // To bypass mocha-loader incompatibility with webpack :
+                                      // mocha-loader still using loaders without the "-loader" suffix,
+                                      // which is forbidden with webpack v2
+    },
 
     module: {
         rules: [
@@ -40,5 +42,16 @@ module.exports = {
                 loader: 'raw-loader'
             }
         ]
+    },
+
+    plugins: [
+        new webpack.ContextReplacementPlugin(                            // Fixes Angular 2 webpack error :
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/, // Critical dependency: the request of
+            __dirname                                                    // a dependency is an expression
+        )
+    ],
+
+    performance: {
+        hints: false
     }
 };

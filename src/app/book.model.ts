@@ -1,13 +1,9 @@
 export class Book {
-    iSBN: number;
     originalTitle: string;
     author: string;
-    publicationDate: Date;
 
-    constructor(iSBN: number, originalTitle: string, author: string, publicationDate: Date) {
-        this.iSBN = iSBN;
+    constructor(originalTitle: string, author: string) {
         this.originalTitle = originalTitle;
         this.author = author;
-        this.publicationDate = publicationDate;
     }
 }

@@ -1,10 +1,9 @@
 <h2>{{ title }}</h2>
-<div class="grid grid-pad">
-    <nav>
-        <a *ngFor="let book of bookList" class="col-1-4">
-            <div class="module book">
-                <h4>{{book.originalTitle}}</h4>
-            </div>
-        </a>
-    </nav>
+<div>
+    <span *ngIf="bookList.length === 0">{{ emptyMessage }}</span>
+    <ul>
+        <li *ngFor="let book of bookList">
+            <span>{{book.originalTitle}}</span>
+        </li>
+    </ul>
 </div>

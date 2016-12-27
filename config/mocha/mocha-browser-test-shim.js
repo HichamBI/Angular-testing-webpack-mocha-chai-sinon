@@ -14,6 +14,6 @@ var browser = require('@angular/platform-browser-dynamic/testing');
 
 testing.TestBed.initTestEnvironment(browser.BrowserDynamicTestingModule, browser.platformBrowserDynamicTesting());
 
-var context = require.context('../../test/', true, /\.spec\.ts/);
+var context = require.context('./../../test', true, /\.spec\.ts/);
 context.keys().forEach(context);
 module.exports = context;
