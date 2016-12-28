@@ -1,5 +1,5 @@
 ---
-Running Angular 2 Tests with Webpack, Mocha, Chai and Sinon on Both, Node & Browser.
+Running Angular 2 Tests with Webpack, Mocha, Chai and Sinon in Both, Node & Browser.
 ---
 
 
@@ -7,9 +7,9 @@ Using :
 
 + **Webpack v2**.
 
-+ **mocha-webpack** and **jsdom** for tests on node.
++ **mocha-webpack** and **jsdom** for tests in node.
 
-+ **mocha-loader** for tests on browser.
++ **mocha-loader** for tests in browser.
 
 + **Chai** and **Sinon** for assertions and mocking.
 
