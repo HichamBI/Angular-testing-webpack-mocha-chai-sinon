@@ -20,9 +20,9 @@
     "start": "webpack-dev-server --inline --progress --port 8080",
 
     "test": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts",
-    "test:coverage": "rimraf .tmp && nyc mocha-webpack --opts config/mocha/mocha-webpack.opts",
     "test:watch": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts --watch",
     "test:report": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts --reporter=xunit --reporter-options output=tests-report.xml",
+    "test:coverage": "rimraf .tmp && nyc mocha-webpack --opts config/mocha/mocha-webpack.opts",
     "test:server": "webpack-dev-server --config config/webpack.test.browser.js --inline --progress --port 8888"
   },
   "dependencies": {
