@@ -27,3 +27,11 @@ typings/
 
 # Tomcat Embedded
 tomcat.8080/
+
+# mocha-webpack test directory
+.tmp
+
+# Js Istanbul Coverage
+coverage/
+.nyc_output/
+tests-report.xml
