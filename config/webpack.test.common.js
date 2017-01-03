@@ -18,6 +18,12 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
+                exclude: helpers.root('test'),
+                loaders: ['istanbul-instrumenter-loader', 'awesome-typescript-loader', 'angular2-template-loader']
+            },
+            {
+                test: /\.ts$/,
+                include: helpers.root('test'),
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader']
             },
             {
