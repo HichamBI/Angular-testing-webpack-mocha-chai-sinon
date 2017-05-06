@@ -7,8 +7,10 @@ import  * as sinon  from 'sinon';
 
 import { AppComponent } from "../src/app/app.component";
 import { AppService } from "../src/app/app.service";
+import { FormsModule } from "@angular/forms";
+import { BookFormComponent } from "../src/app/book-form.component";
 
-describe(`App Component Test`, () => {
+describe(`App Component`, () => {
     let comp: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
     let server : any;
@@ -29,8 +31,8 @@ describe(`App Component Test`, () => {
         );
 
         TestBed.configureTestingModule({
-            imports: [HttpModule],
-            declarations: [AppComponent],
+            imports: [HttpModule, FormsModule],
+            declarations: [AppComponent, BookFormComponent],
             providers: [AppService],
         }).compileComponents();
     });

@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>{{ formTitle }}</h1>
+    <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+        <div class="form-group">
+            <label for="originalTitle">Original Title</label>
+            <input type="text" class="form-control" id="originalTitle" [(ngModel)]="model.originalTitle"
+                   name="originalTitle" required>
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author" [(ngModel)]="model.author" name="author">
+        </div>
+        <button id="submit" type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid" (click)="newBook()" >Submit</button>
+    </form>
+
+    <br/>
+    <span>Log : {{ model.originalTitle }}</span>
+</div>

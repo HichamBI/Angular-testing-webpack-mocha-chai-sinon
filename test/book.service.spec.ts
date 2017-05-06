@@ -6,7 +6,7 @@ import  * as sinon  from 'sinon';
 
 import { AppService } from "../src/app/app.service";
 
-describe(`Book Service Test`, () => {
+describe(`Book Service`, () => {
     let server: any;
 
     beforeEach(() => {
