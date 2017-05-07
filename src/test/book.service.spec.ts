@@ -3,8 +3,8 @@ import { HttpModule } from "@angular/http";
 
 import { expect } from 'chai';
 import  * as sinon  from 'sinon';
+import { AppService } from "../app/app.service";
 
-import { AppService } from "../src/app/app.service";
 
 describe(`Book Service`, () => {
     let server: any;
@@ -27,7 +27,7 @@ describe(`Book Service`, () => {
         TestBed.configureTestingModule({
             imports: [HttpModule],
             providers: [AppService],
-        });
+        }).compileComponents();
     });
 
     afterEach(() => {

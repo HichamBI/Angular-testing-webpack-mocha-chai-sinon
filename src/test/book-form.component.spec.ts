@@ -1,11 +1,11 @@
 import { ComponentFixture, getTestBed, TestBed } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
-
-import { BookFormComponent } from "../src/app/book-form.component";
-
 import { expect } from "chai";
-import { spy } from "sinon";
+import { BookFormComponent } from "../app/book-form.component";
+
+let chai = require('chai') , spies = require('chai-spies');
+chai.use(spies);
 
 function newEvent(eventName: string, bubbles = false, cancelable = false) {
     let evt = document.createEvent('CustomEvent');  // MUST be 'CustomEvent'
@@ -21,7 +21,7 @@ describe(`Book Form Component`, () => {
         TestBed.configureTestingModule({
             imports: [FormsModule],
             declarations: [BookFormComponent],
-        })
+        }).compileComponents();
     });
 
     afterEach(() => {
@@ -48,18 +48,15 @@ describe(`Book Form Component`, () => {
         let originalTitleInput = fixture.debugElement.query(By.css('#originalTitle')).nativeElement;
         let logSpan = fixture.debugElement.query(By.css('span'));
 
-        expect(logSpan.nativeElement.textContent).to.equal('');
-
         fixture.detectChanges();
         expect(logSpan.nativeElement.textContent).to.equal('Log : ');
 
         fixture.whenStable().then(() => {
             originalTitleInput.value = 'Harry Potter';
             originalTitleInput.dispatchEvent(newEvent('input'));
+            fixture.detectChanges();
 
             expect(comp.model.originalTitle).to.equal('Harry Potter');
-
-            fixture.detectChanges();
             expect(logSpan.nativeElement.textContent).to.equal('Log : Harry Potter');
 
             done();
@@ -71,13 +68,14 @@ describe(`Book Form Component`, () => {
         comp = fixture.componentInstance;
 
         let submitButton = fixture.debugElement.query(By.css('#submit'));
-        let onSubmitFunction = spy(comp, 'onSubmit');
-        let newBookFunction = spy(comp, 'newBook');
+        let newBookFunction = chai.spy.on(comp, 'newBook');
+        let onSubmitFunction = chai.spy.on(comp, 'onSubmit');
 
         submitButton.triggerEventHandler('click', {});
 
-        expect(onSubmitFunction.calledOnce).to.equal(false);
-        expect(newBookFunction.calledOnce).to.equal(true);
+        expect(newBookFunction).to.have.been.called();
+        expect(onSubmitFunction).to.not.have.been.called();
+
     });
 
     it('should call onSubmit function when form submitted', () => {
@@ -85,14 +83,13 @@ describe(`Book Form Component`, () => {
         comp = fixture.componentInstance;
 
         let form = fixture.debugElement.query(By.css('form'));
-        let onSubmitFunction = spy(comp, 'onSubmit');
-        let newBookFunction = spy(comp, 'newBook');
+        let onSubmitFunction = chai.spy.on(comp, 'onSubmit');
+        let newBookFunction = chai.spy.on(comp, 'newBook');
 
-        fixture.detectChanges();
 
         form.triggerEventHandler('submit', {});
 
-        expect(onSubmitFunction.calledOnce).to.equal(true);
-        expect(newBookFunction.calledOnce).to.equal(false);
+        expect(newBookFunction).to.not.have.been.called();
+        expect(onSubmitFunction).to.have.been.called();
     });
 });

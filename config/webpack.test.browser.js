@@ -19,7 +19,7 @@ module.exports = webpackMerge(commonTestConfig, {
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: helpers.root('test/mocha-index.html')
+            template: helpers.root('src/test/mocha-index.html')
         })
     ]
 });

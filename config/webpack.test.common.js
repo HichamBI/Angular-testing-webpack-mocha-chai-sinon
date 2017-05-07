@@ -18,13 +18,18 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                exclude: helpers.root('test'),
+                exclude: helpers.root('src/test'),
                 loaders: ['istanbul-instrumenter-loader', 'awesome-typescript-loader', 'angular2-template-loader']
             },
             {
                 test: /\.ts$/,
-                include: helpers.root('test'),
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+                include: helpers.root('src/test'),
+                loaders: [
+                    {
+                        loader: 'awesome-typescript-loader',
+                        options: {configFileName: helpers.root('tsconfig.json')}
+                    }, 'angular2-template-loader'
+                ]
             },
             {
                 test: /\.html$/,
@@ -49,10 +54,12 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ContextReplacementPlugin(                            // Fixes Angular 2 webpack error :
-            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/, // Critical dependency: the request of
-            __dirname                                                    // a dependency is an expression
-        )
+        // Workaround for angular/angular#11580
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)@angular/,
+            helpers.root('src'),
+            {}
+        ),
     ],
 
     performance: {

@@ -5,10 +5,10 @@ import { By } from '@angular/platform-browser';
 import { expect  } from 'chai';
 import  * as sinon  from 'sinon';
 
-import { AppComponent } from "../src/app/app.component";
-import { AppService } from "../src/app/app.service";
 import { FormsModule } from "@angular/forms";
-import { BookFormComponent } from "../src/app/book-form.component";
+import { AppComponent } from "../app/app.component";
+import { BookFormComponent } from "../app/book-form.component";
+import { AppService } from "../app/app.service";
 
 describe(`App Component`, () => {
     let comp: AppComponent;
@@ -43,8 +43,8 @@ describe(`App Component`, () => {
     });
 
     it('should display a title', () => {
-        fixture = TestBed.createComponent(AppComponent);
         let title : any;
+        fixture = TestBed.createComponent(AppComponent);
 
         title = fixture.debugElement.query(By.css('h2'));
         expect(title.nativeElement.textContent).to.equal('');

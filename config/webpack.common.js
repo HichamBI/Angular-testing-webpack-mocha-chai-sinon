@@ -11,7 +11,12 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+                loaders: [
+                    {
+                        loader: 'awesome-typescript-loader',
+                        options: {configFileName: helpers.root('tsconfig.json')}
+                    }, 'angular2-template-loader'
+                ]
             },
             {
                 test: /\.html$/,
@@ -37,10 +42,11 @@ module.exports = {
         ]
     },
     plugins: [
-        // Fixes Angular 2 error
+        // Workaround for angular/angular#11580
         new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-            __dirname
+            /angular(\\|\/)core(\\|\/)@angular/,
+            helpers.root('src'),
+            {}
         ),
         new webpack.optimize.CommonsChunkPlugin({ //Keep the vendor code out of the app
             name: ['app', 'vendor', 'polyfills']
