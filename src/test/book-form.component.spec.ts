@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 import { expect } from "chai";
 import { BookFormComponent } from "../app/book-form.component";
+import { spy } from "sinon";
 
 let chai = require('chai') , spies = require('chai-spies');
 chai.use(spies);
@@ -68,14 +69,13 @@ describe(`Book Form Component`, () => {
         comp = fixture.componentInstance;
 
         let submitButton = fixture.debugElement.query(By.css('#submit'));
-        let newBookFunction = chai.spy.on(comp, 'newBook');
-        let onSubmitFunction = chai.spy.on(comp, 'onSubmit');
+        let onSubmitFunction = spy(comp, 'onSubmit');
+        let newBookFunction = spy(comp, 'newBook');
 
         submitButton.triggerEventHandler('click', {});
 
-        expect(newBookFunction).to.have.been.called();
-        expect(onSubmitFunction).to.not.have.been.called();
-
+        expect(onSubmitFunction.calledOnce).to.equal(false);
+        expect(newBookFunction.calledOnce).to.equal(true);
     });
 
     it('should call onSubmit function when form submitted', () => {
