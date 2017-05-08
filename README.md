@@ -5,18 +5,22 @@ Running Angular 2 Tests with Webpack, Mocha, Chai and Sinon in Both, Node & Brow
 
 Using :
 
-+ **Webpack v2**.
++ **Angular v4.1.1**.
 
-+ **mocha-webpack** and **jsdom** for tests in node.
++ **Webpack v2.2.1**.
 
-+ **mocha-loader** for tests in browser.
++ **Jsdom v10.1.0**.
 
-+ **Chai** and **Sinon** for assertions and mocking.
++ **Mocha-webpack** for Node testing.
+
++ **Mocha-loader** for browser testing.
+
++ **Chai**, **Chai-spies** and **Sinon** for assertions, mocking, spying.
 
 
-First thing to do : 
+Clone the repo and do : 
 
-    npm install && typings install
+    npm install
 
 Launch Node tests with : 
 
