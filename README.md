@@ -1,5 +1,5 @@
 ---
-Running Angular 2 Tests with Webpack, Mocha, Chai and Sinon in Both, Node & Browser.
+Running Angular Tests with Webpack, Mocha, Chai and Sinon.
 ---
 
 
