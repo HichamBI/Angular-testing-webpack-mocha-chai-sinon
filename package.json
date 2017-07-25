@@ -64,7 +64,7 @@
     "jsdom": "10.1.0",
     "mocha": "3.3.0",
     "mocha-loader": "1.1.1",
-    "mocha-webpack": "0.7.0",
+    "mocha-webpack": "1.0.0-rc.1",
     "null-loader": "0.1.1",
     "nyc": "10.0.0",
     "rimraf": "2.5.2",

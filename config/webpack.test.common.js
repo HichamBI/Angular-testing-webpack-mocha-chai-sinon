@@ -2,7 +2,8 @@ var helpers = require('./helpers');
 var webpack = require('webpack');
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
+    devtool: "inline-source-map", // To have breakpoints on both, test sources and app sources
+                                  // NB : Using inline-cheap-module-source-map  activate breakpoints only on test code
 
     resolve: {
         extensions: ['.ts', '.js']
