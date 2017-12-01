@@ -1,9 +1,7 @@
-var helpers = require('./helpers');
-var webpack = require('webpack');
+const helpers = require('./helpers');
+const webpack = require('webpack');
 
 module.exports = {
-    devtool: "inline-source-map", // To have breakpoints on both, test sources and app sources
-                                  // NB : Using inline-cheap-module-source-map  activate breakpoints only on test code
 
     resolve: {
         extensions: ['.ts', '.js']
@@ -12,30 +10,15 @@ module.exports = {
     resolveLoader: {
         moduleExtensions: ['-loader'] // To bypass mocha-loader incompatibility with webpack :
                                       // mocha-loader still using loaders without the "-loader" suffix,
-                                      // which is forbidden with webpack v2
+                                      // which is forbidden with webpack v2++
     },
 
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                exclude: helpers.root('src/test'),
-                loaders: ['istanbul-instrumenter-loader', 'awesome-typescript-loader', 'angular2-template-loader']
-            },
-            {
-                test: /\.ts$/,
-                include: helpers.root('src/test'),
-                loaders: [
-                    {
-                        loader: 'awesome-typescript-loader',
-                        options: {configFileName: helpers.root('tsconfig.json')}
-                    }, 'angular2-template-loader'
-                ]
-            },
-            {
                 test: /\.html$/,
-                loader: 'html-loader'
-
+                loader: 'raw-loader',
+                exclude: [helpers.root('src/test/mocha-index.html')]
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
@@ -50,17 +33,20 @@ module.exports = {
                 test: /\.css$/,
                 include: helpers.root('src', 'app'),
                 loader: 'raw-loader'
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader',
+                exclude: [helpers.root('src/index.html')]
             }
         ]
     },
 
     plugins: [
-        // Workaround for angular/angular#11580
-        new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
-            helpers.root('src'),
-            {}
-        ),
+        new webpack.ContextReplacementPlugin(                            // Fixes Angular 2++ webpack error :
+            /angular(\\|\/)core(\\|\/)@angular/,                        // Critical dependency: the request of
+            __dirname                                                    // a dependency is an expression
+        )
     ],
 
     performance: {
