@@ -1,11 +1,11 @@
 {
   "name": "angular-webpack-mocha-chai-sinon",
   "version": "1.0.0",
-  "description": "Running Angular 2+ tests with Webpack and Mocha",
+  "description": "Running Angular tests with Webpack and Mocha",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HichamBI/Angular2-Webpack-Mocha-Chai-Sinon.git"
+    "url": "git+https://github.com/HichamBI/Angular-testing-webpack-mocha-chai-sinon"
   },
   "keywords": [
     "angular",
@@ -21,9 +21,9 @@
   ],
   "author": "Hicham BOUZIDI IDRISSI",
   "bugs": {
-    "url": "https://github.com/HichamBI/Angular2-Webpack-Mocha-Chai-Sinon/issues"
+    "url": "https://github.com/HichamBI/Angular-testing-webpack-mocha-chai-sinon/issues"
   },
-  "homepage": "https://github.com/HichamBI/Angular2-Webpack-Mocha-Chai-Sinon#readme",
+  "homepage": "https://github.com/HichamBI/Angular-testing-webpack-mocha-chai-sinon#readme",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts",
