@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/HichamBI/Angular-testing-webpack-mocha-chai-sinon#readme",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 3030",
+    "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts",
     "test:watch": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts --watch",
     "test:report": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts --reporter=xunit --reporter-options output=tests-report.xml",
     "test:coverage": "rimraf .tmp && nyc --reporter=text --reporter=cobertura mocha-webpack --opts config/mocha/mocha-webpack.opts",
-    "test:server": "webpack-dev-server --config config/webpack.test.browser.js --inline --progress --port 3333"
+    "test:server": "webpack-dev-server --config config/webpack.test.browser.js --inline --progress --port 8888"
   },
   "dependencies": {
     "@angular/common": "5.2.0",

@@ -43,10 +43,12 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ContextReplacementPlugin(                            // Fixes Angular 2++ webpack error :
-            /\@angular(\\|\/)core(\\|\/)esm5/,                        // Critical dependency: the request of
+        // Workaround for angular/angular#11580
+        new webpack.ContextReplacementPlugin(
+            /\@angular(\\|\/)core(\\|\/)esm5/,
             helpers.root('src'),
-        )
+            {}
+        ),
     ],
 
     performance: {

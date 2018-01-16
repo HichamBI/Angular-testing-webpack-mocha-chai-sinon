@@ -5,11 +5,11 @@ Running Angular Tests with Webpack, Mocha, Chai and Sinon.
 
 Using :
 
-+ **Angular v4.1.1**.
++ **Angular v5.2.0**.
 
-+ **Webpack v2.2.1**.
++ **Webpack v3.10.0**.
 
-+ **Jsdom v10.1.0**.
++ **Jsdom v11.5.1**.
 
 + **Mocha-webpack** for Node testing.
 
