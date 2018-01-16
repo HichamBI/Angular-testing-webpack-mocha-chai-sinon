@@ -30,8 +30,8 @@ module.exports = {
                 test: /\.css$/,
                 exclude: helpers.root('src/app'),
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader?sourceMap',
-                    loader: 'css-loader?sourceMap'
+                    fallback: 'style-loader?sourceMap',
+                    use: 'css-loader?sourceMap'
                 })
             },
             {
@@ -44,7 +44,7 @@ module.exports = {
     plugins: [
         // Workaround for angular/angular#11580
         new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
+            /\@angular(\\|\/)core(\\|\/)esm5/,
             helpers.root('src'),
             {}
         ),

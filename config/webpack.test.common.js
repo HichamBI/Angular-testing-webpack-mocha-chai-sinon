@@ -44,8 +44,8 @@ module.exports = {
 
     plugins: [
         new webpack.ContextReplacementPlugin(                            // Fixes Angular 2++ webpack error :
-            /angular(\\|\/)core(\\|\/)@angular/,                        // Critical dependency: the request of
-            __dirname                                                    // a dependency is an expression
+            /\@angular(\\|\/)core(\\|\/)esm5/,                        // Critical dependency: the request of
+            helpers.root('src'),
         )
     ],
 
