@@ -33,5 +33,6 @@ tomcat.8080/
 
 # Js Istanbul Coverage
 coverage/
+reports/
 .nyc_output/
 tests-report.xml
