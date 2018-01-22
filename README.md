@@ -28,15 +28,20 @@ Launch Node tests with :
 
 Launch Browser tests with : 
 
-    npm run test:server
+    npm run test:server 
     
-Go to [localhost:8888]() to see the results.
+=> Go to [localhost:8888]() to see the results.
 
+Launch tests coverage with : 
 
+    npm run test:coverage
+    
+To generate test and coverage reports, launch : 
+
+    npm run test:reports
 
 You can find some explaination [here](http://hichambi.github.io/2016/12/27/testing-angular2-with-webpack-mocha-on-browser-and-node.html).
 
 Hope that can help.
 
 Thanks,
-
