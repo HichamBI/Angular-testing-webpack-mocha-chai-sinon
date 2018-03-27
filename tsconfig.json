@@ -8,7 +8,17 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "sinon",
+      "chai",
+      "chai-spies",
+      "mocha"
+    ]
   },
   "exclude": [
     "node_modules"

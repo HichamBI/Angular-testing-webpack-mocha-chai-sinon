@@ -1,14 +1,20 @@
-var webpack = require('webpack');
-var helpers = require('./helpers');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const helpers = require('./helpers');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     resolve: {
         extensions: ['.ts', '.js']
     },
     module: {
-        loaders: [
+        rules: [
+            {
+              test: /\.js$/,
+              parser: {
+                system: true // no warning : https://github.com/webpack/webpack/pull/6321
+              }
+            },
             {
                 test: /\.ts$/,
                 loaders: [
@@ -29,10 +35,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: helpers.root('src/app'),
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader?sourceMap',
-                    use: 'css-loader?sourceMap'
-                })
+                use: [MiniCssExtractPlugin.loader, 'css-loader?sourceMap']
             },
             {
                 test: /\.css$/,
@@ -48,15 +51,8 @@ module.exports = {
             helpers.root('src'),
             {}
         ),
-        new webpack.optimize.CommonsChunkPlugin({ //Keep the vendor code out of the app
-            name: ['app', 'vendor', 'polyfills']
-        }),
-
         new HtmlWebpackPlugin({ //Inject scripts and links into index.html
             template: helpers.root('src/index.html')
         })
-    ],
-    performance: {
-        hints: process.env.NODE_ENV === 'production' ? "warning" : false
-    }
+    ]
 };

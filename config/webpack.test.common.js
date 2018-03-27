@@ -16,6 +16,12 @@ module.exports = {
     module: {
         rules: [
             {
+              test: /\.js$/,
+              parser: {
+                system: true // no warning : https://github.com/webpack/webpack/pull/6321
+              }
+            },
+            {
                 test: /\.html$/,
                 loader: 'raw-loader',
                 exclude: [helpers.root('src/test/mocha-index.html')]
@@ -48,9 +54,8 @@ module.exports = {
             /\@angular(\\|\/)core(\\|\/)esm5/,
             helpers.root('src'),
             {}
-        ),
+        )
     ],
-
     performance: {
         hints: false
     }
