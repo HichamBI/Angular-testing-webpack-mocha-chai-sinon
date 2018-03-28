@@ -26,7 +26,7 @@
   "homepage": "https://github.com/HichamBI/Angular-testing-webpack-mocha-chai-sinon#readme",
   "scripts": {
     "start": "webpack-dev-server --mode development --watch-content-base --port 8080",
-    "test": "rimraf .tmp && cross-env NODE_ENV=development mocha-webpack --opts config/mocha/mocha-webpack.opts",
+    "test": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts",
     "test:watch": "rimraf .tmp && mocha-webpack --opts config/mocha/mocha-webpack.opts --watch",
     "test:server": "webpack-dev-server --mode development --config config/webpack.test.browser.js --inline --progress --port 8888",
     "test:coverage": "rimraf reports && cross-env NODE_ENV=coverage nyc --reporter=text --reporter=text-summary mocha-webpack --opts config/mocha/mocha-webpack.opts",
@@ -60,7 +60,7 @@
     "file-loader": "1.1.11",
     "html-loader": "0.5.5",
     "html-webpack-plugin": "3.1.0",
-    "husky": "^0.15.0-rc.13",
+    "husky": "0.15.0-rc.13",
     "istanbul-instrumenter-loader": "3.0.0",
     "jsdom": "11.6.2",
     "mini-css-extract-plugin": "0.2.0",
