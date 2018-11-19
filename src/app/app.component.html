@@ -1,11 +1,11 @@
 <h2>{{ title }}</h2>
 <div>
-    <span *ngIf="bookList.length === 0">{{ emptyMessage }}</span>
-    <ul>
-        <li *ngFor="let book of bookList">
-            <span>{{book.originalTitle}}</span>
-        </li>
-    </ul>
+  <span *ngIf="bookList.length === 0">{{ emptyMessage }}</span>
+  <ul>
+    <li *ngFor="let book of bookList">
+      <span>{{book.originalTitle}}</span>
+    </li>
+  </ul>
 </div>
 
 <book-form></book-form>

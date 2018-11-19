@@ -1,23 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
-import 'rxjs/add/operator/toPromise';
-import { Book } from "./book.model";
+import {Book} from './book.model';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/index';
 
 @Injectable()
 export class AppService {
 
-    constructor(private http: Http) {
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    getBookList(): Promise<Book[]> {
-        let allBooksUrl = `http://localhost:8080/book/all`;
-        return this.http.get(allBooksUrl)
-            .toPromise()
-            .then(response => response.json() as Book[])
-            .catch(AppService.handleError);
-    }
-
-    private static handleError(error: any): Promise<any> {
-        return Promise.reject(error.message || error);
-    }
+  getBookList(): Observable<Book[]> {
+    const allBooksUrl = `http://localhost:8080/book/all`;
+    return this.http.get<Book[]>(allBooksUrl);
+  }
 }

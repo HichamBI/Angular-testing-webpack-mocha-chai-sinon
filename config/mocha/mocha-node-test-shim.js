@@ -21,8 +21,42 @@ const document = window.document;
 
 global.window = window;
 global.document = document;
+global.Document = document;
 global.HTMLElement = window.HTMLElement;
 global.XMLHttpRequest = window.XMLHttpRequest;
 global.Node = window.Node;
 global.Event = window.Event;
+global.Element = window.Element;
+global.navigator = window.navigator;
+global.KeyboardEvent = window.KeyboardEvent;
 
+global.localStorage = {
+  store : {},
+
+  getItem: function (key) {
+    return this.store[key] || null;
+  },
+  setItem: function (key, value) {
+    this.store[key] = value;
+  },
+  clear: function () {
+    this.store = {};
+  }
+};
+
+global.sessionStorage = {
+  store : {},
+
+  getItem: function (key) {
+    return this.store[key] || null;
+  },
+  setItem: function (key, value) {
+    this.store[key] = value;
+  },
+  clear: function () {
+    this.store = {};
+  }
+};
+
+// https://github.com/angular/material2/issues/7101
+Object.defineProperty(document.body.style, 'transform', {value: () => ({enumerable: true, configurable: true})});

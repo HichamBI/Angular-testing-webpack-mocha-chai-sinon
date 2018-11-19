@@ -1,15 +1,15 @@
-import { ComponentFixture, getTestBed, TestBed } from "@angular/core/testing";
-import { FormsModule } from "@angular/forms";
-import { By } from "@angular/platform-browser";
-import { expect } from "chai";
-import { BookFormComponent } from "../app/book-form.component";
-import { spy } from "sinon";
+import { expect } from 'chai';
+import { BookFormComponent } from '../app/book-form.component';
+import { spy } from 'sinon';
+import {ComponentFixture, getTestBed, TestBed} from '@angular/core/testing';
+import {FormsModule} from '@angular/forms';
+import {By} from '@angular/platform-browser';
 
-let chai = require('chai') , spies = require('chai-spies');
+const chai = require('chai') , spies = require('chai-spies');
 chai.use(spies);
 
 function newEvent(eventName: string, bubbles = false, cancelable = false) {
-    let evt = document.createEvent('CustomEvent');  // MUST be 'CustomEvent'
+    const evt = document.createEvent('CustomEvent');  // MUST be 'CustomEvent'
     evt.initCustomEvent(eventName, bubbles, cancelable, null);
     return evt;
 }
@@ -46,8 +46,8 @@ describe(`Book Form Component`, () => {
         fixture = TestBed.createComponent(BookFormComponent);
         comp = fixture.componentInstance;
 
-        let originalTitleInput = fixture.debugElement.query(By.css('#originalTitle')).nativeElement;
-        let logSpan = fixture.debugElement.query(By.css('span'));
+        const originalTitleInput = fixture.debugElement.query(By.css('#originalTitle')).nativeElement;
+        const logSpan = fixture.debugElement.query(By.css('span'));
 
         fixture.detectChanges();
         expect(logSpan.nativeElement.textContent).to.equal('Log : ');
@@ -68,9 +68,9 @@ describe(`Book Form Component`, () => {
         fixture = TestBed.createComponent(BookFormComponent);
         comp = fixture.componentInstance;
 
-        let submitButton = fixture.debugElement.query(By.css('#submit'));
-        let onSubmitFunction = spy(comp, 'onSubmit');
-        let newBookFunction = spy(comp, 'newBook');
+        const submitButton = fixture.debugElement.query(By.css('#submit'));
+        const onSubmitFunction = spy(comp, 'onSubmit');
+        const newBookFunction = spy(comp, 'newBook');
 
         submitButton.triggerEventHandler('click', {});
 
@@ -82,9 +82,9 @@ describe(`Book Form Component`, () => {
         fixture = TestBed.createComponent(BookFormComponent);
         comp = fixture.componentInstance;
 
-        let form = fixture.debugElement.query(By.css('form'));
-        let onSubmitFunction = chai.spy.on(comp, 'onSubmit');
-        let newBookFunction = chai.spy.on(comp, 'newBook');
+        const form = fixture.debugElement.query(By.css('form'));
+        const onSubmitFunction = chai.spy.on(comp, 'onSubmit');
+        const newBookFunction = chai.spy.on(comp, 'newBook');
 
 
         form.triggerEventHandler('submit', {});

@@ -1,3 +1,4 @@
 --webpack-config config/webpack.test.node.js
 --require config/mocha/mocha-node-test-shim.js
+--mode development
 src/test/*.spec.ts

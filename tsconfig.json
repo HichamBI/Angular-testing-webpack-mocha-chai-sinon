@@ -8,11 +8,32 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ]
   },
+  "types": [
+    "core-js",
+    "hammerjs",
+    "jasmine",
+    "node",
+    "selenium-webdriver",
+    "sinon",
+    "chai",
+    "chai-spies"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "ngfactory",
+    "typings"
   ],
   "compileOnSave": false,
-  "buildOnSave": false
+  "buildOnSave": false,
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  }
 }
