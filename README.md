@@ -5,7 +5,7 @@ Running Angular Tests with Webpack, Mocha, Chai and Sinon.
 
 Using :
 
-+ **Angular v7.0.4**.
++ **Angular v7+**.
 
 + **Webpack v4.26.0**.
 
